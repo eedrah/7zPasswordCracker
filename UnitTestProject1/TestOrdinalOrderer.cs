@@ -4,16 +4,15 @@ using Xunit;
 using _7zPasswordCracker;
 
 namespace Tests {
-    public class TestOrderer {
+    public class TestOrdinalOrderer {
         [Fact]
         public void Should_Return_IEnumerables_Of_All_Numbers_From_0_To_The_Input() {
-            var orderer = new Orderer();
+            IOrderer orderer = new OrdinalOrderer();
             int input = 3;
 
-            List<IEnumerable<int>> orderings = orderer.GetOrderings(input).ToList();
+            List<List<int>> orderings = orderer.GetOrderings(input).ToList();
 
-            for (int i = 1; i < 3; i++)
-            {
+            for (int i = 1; i < 3; i++) {
                 int number = i;
                 Assert.Contains(orderings, ints => ints.Single() == number);
             }
