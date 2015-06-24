@@ -17,5 +17,15 @@ namespace Tests {
                 Assert.Contains(orderings, ints => ints.Single() == number);
             }
         }
+
+        [Fact]
+        public void Should_Contain_1_3_And_4_When_Given_5() {
+            IOrderer orderer = new OrdinalOrderer();
+            int input = 5;
+
+            List<List<int>> orderings = orderer.GetOrderings(input).ToList();
+
+            Assert.Contains(orderings, ints => ints.SequenceEqual(new[] { 1, 3, 4 }));
+        }
     }
 }
