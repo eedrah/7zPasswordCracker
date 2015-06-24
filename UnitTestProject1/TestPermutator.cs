@@ -16,17 +16,25 @@ namespace Tests {
         }
 
         [Fact]
-        public void Should_Return_All_Words_Given()
-        {
+        public void Should_Return_All_Words_Given() {
             var permutator = new Permutator();
-            var words = new List<string> { "some", "words", "given"};
+            var words = new List<string> { "some", "words", "given" };
 
             List<string> results = permutator.Permutate(words).ToList();
 
-            foreach (string word in words)
-            {
+            foreach (string word in words) {
                 Assert.Contains(word, results);
             }
+        }
+
+        [Fact]
+        public void Should_Return_Concatination_Of_Two_Words() {
+            var permutator = new Permutator();
+            var words = new List<string> { "some", "words", "given" };
+
+            List<string> results = permutator.Permutate(words).ToList();
+
+            Assert.Contains("somegiven", results);
         }
     }
 }
