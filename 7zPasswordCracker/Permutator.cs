@@ -8,7 +8,7 @@ namespace _7zPasswordCracker {
     public class Permutator {
         public IEnumerable<string> Permutate(List<string> words)
         {
-            throw new NotImplementedException();
+            return words;
         }
     }
 }
