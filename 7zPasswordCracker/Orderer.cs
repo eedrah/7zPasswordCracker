@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace _7zPasswordCracker {
     public class Orderer {
-        public IEnumerable<IEnumerable<int>> GetOrderings(int i)
-        {
-            throw new NotImplementedException();
+        public IEnumerable<IEnumerable<int>> GetOrderings(int length) {
+            for (int i = 0; i < length; i++) {
+                yield return new List<int> { i };
+            }
         }
     }
 }
