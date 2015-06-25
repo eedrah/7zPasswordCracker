@@ -27,5 +27,25 @@ namespace Tests {
 
             Assert.Contains(orderings, ints => ints.SequenceEqual(new[] { 1, 3, 4 }));
         }
+
+        [Fact]
+        public void Should_Contain_0_1_2_3_And_4_When_Given_5() {
+            IOrderer orderer = new OrdinalOrderer();
+            int input = 5;
+
+            List<List<int>> orderings = orderer.GetOrderings(input).ToList();
+
+            Assert.Contains(orderings, ints => ints.SequenceEqual(new[] { 0, 1, 2, 3, 4 }));
+        }
+
+        [Fact]
+        public void Should_Contain_Empty_Sequence_When_Given_5() {
+            IOrderer orderer = new OrdinalOrderer();
+            int input = 5;
+
+            List<List<int>> orderings = orderer.GetOrderings(input).ToList();
+
+            Assert.Contains(orderings, ints => ints.SequenceEqual(new int[0]));
+        }
     }
 }
