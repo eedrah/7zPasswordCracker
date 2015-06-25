@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _7zPasswordCracker {
     public class Caser {
-        public IEnumerable<string> GetCases(string word) {
+        public List<string> GetCases(string word) {
             ISet<string> cases = new HashSet<string> { word };
 
             string lower = word.ToLower();
@@ -17,12 +17,26 @@ namespace _7zPasswordCracker {
 
             cases.Add(word.ToUpper());
 
-            return cases;
+            return cases.ToList();
         }
 
-        public IEnumerable<IEnumerable<string>> GetCases(IEnumerable<string> words)
-        {
-            throw new NotImplementedException();
+        public IEnumerable<List<string>> GetCases(List<string> words) {
+            string lastWord = words.Last();
+            List<string> firstWords = words.Take(words.Count - 1).ToList();
+            if (firstWords.Count > 0) {
+                List<List<string>> firstWordsCases = GetCases(firstWords).ToList();
+                foreach (List<string> firstWordsCase in firstWordsCases) {
+                    foreach (string casedWord in GetCases(lastWord)) {
+                        firstWordsCase.Add(casedWord);
+                        yield return firstWordsCase;
+                    }
+                }
+            } else {
+                foreach (string lastWordCase in GetCases(lastWord))
+                {
+                    yield return new List<string>{lastWordCase};
+                }
+            }
         }
     }
 }
