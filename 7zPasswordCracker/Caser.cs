@@ -19,5 +19,10 @@ namespace _7zPasswordCracker {
 
             return cases;
         }
+
+        public IEnumerable<IEnumerable<string>> GetCases(IEnumerable<string> words)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

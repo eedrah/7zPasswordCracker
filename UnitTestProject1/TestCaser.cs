@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 using _7zPasswordCracker;
 
@@ -42,6 +43,16 @@ namespace Tests {
             IEnumerable<string> results = caser.GetCases(word);
 
             Assert.Contains("TESTING", results);
+        }
+
+        [Fact]
+        public void Should_Contain_Original_Cases_Of_Multiple_Words() {
+            var caser = new Caser();
+            var words = new List<string> { "teStIng", "WoRds" };
+
+            IEnumerable<IEnumerable<string>> results = caser.GetCases(words);
+
+            Assert.Contains(results, enumerable => enumerable.SequenceEqual(words));
         }
     }
 }
