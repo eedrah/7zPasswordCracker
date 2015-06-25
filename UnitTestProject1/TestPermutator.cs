@@ -28,13 +28,23 @@ namespace Tests {
         }
 
         [Fact]
-        public void Should_Return_Concatination_Of_Two_Words() {
+        public void Should_Return_Onethree_When_Given_One_Two_And_Three() {
             var permutator = new Permutator();
-            var words = new List<string> { "some", "words", "given" };
+            var words = new List<string> { "one", "two", "three" };
 
             List<string> results = permutator.Permutate(words).ToList();
 
-            Assert.Contains("somegiven", results);
+            Assert.Contains("onethree", results);
+        }
+
+        [Fact]
+        public void Should_Return_One_Three_When_Given_One_Two_And_Three() {
+            var permutator = new Permutator();
+            var words = new List<string> { "one", "two", "three" };
+
+            List<string> results = permutator.Permutate(words).ToList();
+
+            Assert.Contains("one three", results);
         }
     }
 }
