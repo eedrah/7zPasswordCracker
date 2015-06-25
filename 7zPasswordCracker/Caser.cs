@@ -15,6 +15,8 @@ namespace _7zPasswordCracker {
             string title = lower[0].ToString().ToUpper() + lower.Substring(1);
             cases.Add(title);
 
+            cases.Add(word.ToUpper());
+
             return cases;
         }
     }
