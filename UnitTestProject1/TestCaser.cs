@@ -62,7 +62,18 @@ namespace Tests {
 
             IEnumerable<IEnumerable<string>> results = caser.GetCases(words);
 
-            var expected = new List<string> {"testing", "words"};
+            var expected = new List<string> { "testing", "words" };
+            Assert.Contains(results, enumerable => enumerable.SequenceEqual(expected));
+        }
+
+        [Fact]
+        public void Should_Contain_Lower_Cases_Of_First_Word_And_Title_Of_Second() {
+            var caser = new Caser();
+            var words = new List<string> { "teStIng", "WoRds" };
+
+            IEnumerable<IEnumerable<string>> results = caser.GetCases(words);
+
+            var expected = new List<string> { "testing", "Words" };
             Assert.Contains(results, enumerable => enumerable.SequenceEqual(expected));
         }
     }
