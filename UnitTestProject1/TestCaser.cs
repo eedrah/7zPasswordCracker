@@ -54,5 +54,16 @@ namespace Tests {
 
             Assert.Contains(results, enumerable => enumerable.SequenceEqual(words));
         }
+
+        [Fact]
+        public void Should_Contain_Lower_Cases_Of_Multiple_Words() {
+            var caser = new Caser();
+            var words = new List<string> { "teStIng", "WoRds" };
+
+            IEnumerable<IEnumerable<string>> results = caser.GetCases(words);
+
+            var expected = new List<string> {"testing", "words"};
+            Assert.Contains(results, enumerable => enumerable.SequenceEqual(expected));
+        }
     }
 }
