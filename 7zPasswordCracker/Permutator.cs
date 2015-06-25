@@ -11,9 +11,14 @@ namespace _7zPasswordCracker {
             int numberOfWords = words.Count;
             IEnumerable<List<int>> orderings = new OrdinalOrderer().GetOrderings(numberOfWords);
             var joiner = new Joiner();
-            return orderings
-                .Select(order => order.Select(wordIndex => words[wordIndex]))
-                .SelectMany(candidateWords => joiner.Join(candidateWords));
+            foreach (var order in orderings)
+            {
+                IEnumerable<string> candidateWords = order.Select(wordIndex => words[wordIndex]);
+                foreach (string combination in joiner.Join(candidateWords))
+                {
+                    yield return combination;
+                }
+            }
         }
     }
 }
