@@ -14,7 +14,7 @@ namespace Tests {
 
             for (int i = 1; i < 3; i++) {
                 int number = i;
-                Assert.Contains(orderings, ints => ints.Single() == number);
+                Assert.Contains(orderings, ints => ints.SequenceEqual(new[]{number}));
             }
         }
 
