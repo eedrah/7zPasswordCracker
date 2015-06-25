@@ -8,7 +8,7 @@ namespace _7zPasswordCracker {
     public class Caser {
         public IEnumerable<string> GetCases(string word)
         {
-            throw new NotImplementedException();
+            yield return word;
         }
     }
 }
