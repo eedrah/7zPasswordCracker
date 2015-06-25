@@ -5,7 +5,7 @@ using _7zPasswordCracker;
 namespace Tests {
     public class TestCaser {
         [Fact]
-        public void Should_Return_Original_Case_Of_Input_Word() {
+        public void Should_Contain_Original_Case_Of_Input_Word() {
             var caser = new Caser();
             var word = "teStIng";
 
@@ -15,7 +15,7 @@ namespace Tests {
         }
 
         [Fact]
-        public void Should_Return_Lower_Case_Of_Input_Word() {
+        public void Should_Contain_Lower_Case_Of_Input_Word() {
             var caser = new Caser();
             var word = "teStIng";
 
@@ -25,7 +25,7 @@ namespace Tests {
         }
 
         [Fact]
-        public void Should_Return_Title_Case_Of_Input_Word() {
+        public void Should_Contain_Title_Case_Of_Input_Word() {
             var caser = new Caser();
             var word = "teStIng";
 
@@ -35,7 +35,7 @@ namespace Tests {
         }
 
         [Fact]
-        public void Should_Return_Upper_Case_Of_Input_Word() {
+        public void Should_Contain_Upper_Case_Of_Input_Word() {
             var caser = new Caser();
             var word = "teStIng";
 
